@@ -20,6 +20,8 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
+ * A class that allows OAI provider with the ability to produce records in Dublin Core format.
+ * All you need to do is to implement your own OaiDataSource that grabs data from where you have them stored.
  * @author Lukas Jane (inQool) 1. 5. 2015.
  */
 @RequestScoped

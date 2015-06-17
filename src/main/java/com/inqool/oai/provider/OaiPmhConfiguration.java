@@ -19,7 +19,7 @@ import java.util.Map;
  * If you are looking to use the OAI-PMH provider, you should:
  *
  * 1) fill in your repository information to the identify() method
- * 2) implement FormatDescriptor for all metadata formats you wish to support, or just complete the default DcFormatDescriptor template
+ * 2) implement FormatDescriptor for all metadata formats you wish to support, or just look at the default DcFormatDescriptor class to use Dublin Core metadata format
  * 3) add all supported formats in this class constructor
  *
  * @author Lukas Jane (inQool) 1. 5. 2015.
@@ -30,7 +30,6 @@ public class OaiPmhConfiguration {
     private Map<String, FormatDescriptor> supportedFormats = new HashMap<>();
 
     public OaiPmhConfiguration() {
-
     }
     /**
      * Add all supported metadata formats here.
@@ -39,7 +38,7 @@ public class OaiPmhConfiguration {
     @Inject
     public OaiPmhConfiguration(DcFormatDescriptor dcFormatDescriptor) {
         addSupportedFormat(dcFormatDescriptor);
-        //addSupportedFormat();
+        //addSupportedFormat(anotherFormat);
     }
 
     /**
@@ -48,7 +47,7 @@ public class OaiPmhConfiguration {
     public IdentifyType identify() {
         IdentifyType identifyType = new IdentifyType();
         //TODO fill actual info
-        identifyType.setRepositoryName("IQ ZDO Repository");
+        identifyType.setRepositoryName("The Repository");
         identifyType.getAdminEmails().add("admin@example.com");
         identifyType.setEarliestDatestamp("INSTALL_DATE");    //find earliest modified record and return the time
         identifyType.setDeletedRecord(DeletedRecordType.NO);
