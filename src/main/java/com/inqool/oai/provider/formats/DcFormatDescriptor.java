@@ -10,6 +10,7 @@ import org.openarchives.oai._2_0.oai_dc.Dc;
 import org.purl.dc.elements._1.ElementType;
 import org.slf4j.Logger;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.xml.bind.JAXBElement;
 import java.time.OffsetDateTime;
@@ -21,6 +22,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * @author Lukas Jane (inQool) 1. 5. 2015.
  */
+@RequestScoped
 public class DcFormatDescriptor implements FormatDescriptor {
     @Inject
     private Logger logger;

@@ -13,7 +13,7 @@ import javax.ws.rs.QueryParam;
  * @author Lukas Jane (inQool)
  */
 @RequestScoped
-@Path("/oai-pmh")
+@Path("/")
 public class OaiPmhResource {
     @Inject
     private HttpServletRequest request;

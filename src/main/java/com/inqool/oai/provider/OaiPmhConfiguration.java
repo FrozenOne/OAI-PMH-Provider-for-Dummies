@@ -6,6 +6,7 @@ import com.inqool.oai.provider.formats.FormatDescriptor;
 import org.openarchives.oai._2.*;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
 import java.util.Collection;
@@ -25,15 +26,20 @@ import java.util.Map;
  */
 @ApplicationScoped
 public class OaiPmhConfiguration {
+
     private Map<String, FormatDescriptor> supportedFormats = new HashMap<>();
 
+    public OaiPmhConfiguration() {
+
+    }
     /**
      * Add all supported metadata formats here.
      * When request comes, Resource classes use these format descriptors to load data and build the response.
      */
-    public OaiPmhConfiguration() {
-        addSupportedFormat(new DcFormatDescriptor());
-        //addSupportedFormat(new AnotherFormatDescriptor());
+    @Inject
+    public OaiPmhConfiguration(DcFormatDescriptor dcFormatDescriptor) {
+        addSupportedFormat(dcFormatDescriptor);
+        //addSupportedFormat();
     }
 
     /**
