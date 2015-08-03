@@ -3,12 +3,13 @@ package com.inqool.oai.provider;
 import com.inqool.oai.provider.exception.NoSetHierarchyPmhException;
 import com.inqool.oai.provider.formats.DcFormatDescriptor;
 import com.inqool.oai.provider.formats.FormatDescriptor;
-import org.openarchives.oai._2.*;
+import org.openarchives.oai._2.DeletedRecordType;
+import org.openarchives.oai._2.GranularityType;
+import org.openarchives.oai._2.IdentifyType;
+import org.openarchives.oai._2.ListSetsType;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.xml.bind.JAXBElement;
-import javax.xml.namespace.QName;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -53,10 +54,6 @@ public class OaiPmhConfiguration {
         identifyType.setDeletedRecord(DeletedRecordType.NO);
         identifyType.setGranularity(GranularityType.YYYY_MM_DD);
         identifyType.setProtocolVersion("2.0");
-
-        final DescriptionType desc = new DescriptionType();
-        desc.setAny(new JAXBElement<>(new QName("general"), String.class, "An example repository description"));
-        identifyType.getDescriptions().add(desc);
         return identifyType;
     }
 
